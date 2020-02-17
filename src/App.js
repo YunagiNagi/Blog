@@ -3,9 +3,7 @@ import './App.css';
 import ButtonAppBar from './AppBar/AppBar';
 import ImgMediaCard from './Header/Header';
 import DetailCard from './Detail/Detail';
-import ProfileCard from './Profile/Profile';
-import PostCard from './Post/Post';
-import PaginationButtons from './Pagination/Pagination';
+import Contents from './Contents/Contents';
 
 function App() {
   return (
@@ -13,9 +11,7 @@ function App() {
       <ButtonAppBar />
       <ImgMediaCard />
       <DetailCard />
-      <PostCard />
-      <PaginationButtons />
-      <ProfileCard />
+      <Contents />
     </div>
   );
 }

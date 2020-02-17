@@ -19,10 +19,10 @@ export default function ImgMediaCard() {
     <Card className={classes.root}>
       <CardMedia
         component="img"
-        alt="Contemplative Reptile"
-        height="140"
+        alt="Header Image"
+        // height="140"
         image="./JGIU3_EZ.jpg"
-        title="Contemplative Reptile"
+        title="Header Image"
       />
       <CardActions>
         <Button size="small" color="primary">

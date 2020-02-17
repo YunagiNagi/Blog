@@ -10,31 +10,59 @@ const useStyles = makeStyles(theme => ({
   root: {
     margin: theme.spacing(0.5),
   },
+  card: {
+    marginBottom: theme.spacing(2),
+  }
 }));
 
-export default function PostCard() {
+function Post(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
-          height="140"
-          image="./JGIU3_EZ.jpg"
-          title="Contemplative Reptile"
+          alt={ props.post.title }
+          image={ props.post.image }
+          title={ props.post.title }
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            { props.post.title }
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            { props.post.detail }
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
+  );
+}
+
+export default function PostCard() {
+  const classes = useStyles();
+
+  const posts = [
+    {
+      title: 'PostSample',
+      detail: 'post detail',
+      image: "./JGIU3_EZ.jpg"
+    },
+    {
+      title: 'PostSample2',
+      detail: 'post detail',
+      image: "./JGIU3_EZ.jpg"
+    }
+  ];
+
+  const postcards = posts.map(post => 
+    <Post post={post} />
+  );
+
+  return (
+    <div className={classes.root}>
+      { postcards }
+    </div>
   );
 }

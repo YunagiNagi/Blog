@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -41,7 +41,6 @@ const MediaControlCardProps = {
 
 export default function MediaControlCard() {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <Card className={classes.root}>
