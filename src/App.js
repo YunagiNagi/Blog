@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ButtonAppBar from './AppBar/AppBar';
+import ImgMediaCard from './Header/Header';
+import DetailCard from './Detail/Detail';
+import ProfileCard from './Profile/Profile';
+import PostCard from './Post/Post';
+import PaginationButtons from './Pagination/Pagination';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ButtonAppBar />
+      <ImgMediaCard />
+      <DetailCard />
+      <PostCard />
+      <PaginationButtons />
+      <ProfileCard />
     </div>
   );
 }
