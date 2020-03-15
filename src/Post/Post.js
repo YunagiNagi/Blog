@@ -1,17 +1,26 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import ShareIcon from '@material-ui/icons/Share';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(1),
   },
-  card: {
-    marginBottom: theme.spacing(2),
+  avatar: {
+    width: '100%',
+    height: '100%',
+  },
+  posts: {
+    padding: theme.spacing(1),
+  },
+  icons: {
+    textAlign: 'right',
   }
 }));
 
@@ -19,40 +28,46 @@ function Post(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt={ props.post.title }
-          image={ props.post.image }
-          title={ props.post.title }
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            { props.post.title }
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            { props.post.detail }
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <Paper className={classes.root}>
+      <Grid container spacing={0}>
+        <Grid item xs={12} sm={3}>
+          <Avatar aria-label="thumnail image" className={classes.avatar} alt={ props.post.title } src={ props.post.image }></Avatar>
+        </Grid>
+        <Grid item xs={12} sm={9}>
+          <div className={classes.posts}>
+            <Typography gutterBottom variant="h4" component="h4">
+              { props.post.title }
+            </Typography>
+            <Typography variant="body1" color="textSecondary" component="p">
+              { props.post.detail }
+            </Typography>
+            <div className={classes.icons}>
+              <IconButton aria-label="like">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 }
 
 export default function PostCard() {
-  const classes = useStyles();
 
   const posts = [
     {
       title: 'PostSample',
       detail: 'post detail',
-      image: "./JGIU3_EZ.jpg"
+      image: "./thumnail.png"
     },
     {
       title: 'PostSample2',
       detail: 'post detail',
-      image: "./JGIU3_EZ.jpg"
+      image: "./thumnail.png"
     }
   ];
 
@@ -61,7 +76,7 @@ export default function PostCard() {
   );
 
   return (
-    <div className={classes.root}>
+    <div>
       { postcards }
     </div>
   );

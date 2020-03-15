@@ -1,77 +1,62 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
+import GradeIcon from '@material-ui/icons/Grade';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(1),
   },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
+  container: {
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+  },
+  avatar: {
+    width: '100%',
+    height: '100%',
   },
   content: {
-    flex: '1 0 auto',
-  },
-  image: {
-    width: 151,
-  },
-  buttons: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  },
-  playIcon: {
-    height: 38,
-    width: 38,
+    padding: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
+    width: "100%",
   },
 }));
 
-const MediaControlCardProps = {
-  name: "Yunagi nagi",
-  detail: "Hello!"
+const RecipeReviewCardProps = {
+  autherName: 'Yunagi Nagi',
+  autherDetail: 'Detail...'
 }
 
-export default function MediaControlCard() {
+export default function RecipeReviewCard() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.image}
-        image="./JGIU3_EZ.jpg"
-        title="Live from space album cover"
-      />
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            { MediaControlCardProps.name }
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            { MediaControlCardProps.detail }
-          </Typography>
-        </CardContent>
-        <div className={classes.buttons}>
-          <CardActions>
-            <Button size="small" color="primary">
-              Follow
-            </Button>
-            <Button size="small" color="primary">
-              Share
-            </Button>
-            <Button size="small" color="primary">
-              Detail
-            </Button>
-          </CardActions>
-        </div>
-      </div>
-    </Card>
+    <Paper className={classes.root}>
+      <Container className={classes.container}>
+        <Grid container spacing={1}>
+          <Grid item xs={4} sm={12}>
+            <Avatar aria-label="prifile image" className={classes.avatar} alt="Profile image" src="./JGIU3_EZ.jpg">
+            </Avatar>
+          </Grid>
+          <Grid item xs={8} sm={12} className={classes.content}>
+            <Typography variant="h5" component="h5">
+              { RecipeReviewCardProps.autherName }
+              <IconButton aria-label="add to favorites">
+                <GradeIcon />
+              </IconButton>
+            </Typography>
+            <Typography variant="body1" color="textSecondary" component="p">
+              { RecipeReviewCardProps.autherDetail }
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
+    </Paper>
   );
 }

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(1),
   },
 }));
 
@@ -21,7 +21,7 @@ export default function DetailCard() {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="h5" component="h5">
           { detailCardProps.title }
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
